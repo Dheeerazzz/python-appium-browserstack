@@ -1,0 +1,12 @@
+userName: dheerajsurakasul_Q7m2uU
+accessKey: zfFk58FFmpo2EXcoxaVY
+framework: python
+app: bs://09d8827c201d28a823cbd178971695e15bd5eb57
+platforms:
+  - platformName: android
+    deviceName: Google Pixel 5
+    platformVersion: 11.0
+browserstackLocal: true
+buildName: browserstack-build-1
+projectName: BrowserStack Sample
+autoGrantPermissions: true
