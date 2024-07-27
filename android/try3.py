@@ -10,6 +10,7 @@ import json
 import time
 import requests
 
+# Set proxy environment variables
 # Define the proxy URL
 proxy_url = 'http://prkqetmf:3rz31yf8w731@45.127.248.127:5128'
 
@@ -94,7 +95,7 @@ def go_and_back(elements_to_check):
                     break
             except (TimeoutException, NoSuchElementException):
                 continue
-            
+        
 def handle_ads_first(driver):
     xpath_continue_to_app = '//android.widget.TextView[@text="Continue to app"]'
     center_x = driver.get_window_size()['width'] // 2
@@ -183,31 +184,7 @@ def initial(driver):
         initial(driver)
 initial(driver)
 
-def chromer():
-    try:
 
-        # Wait for the search input field to be visible
-        search_box = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, '[name="q"]')))
-        
-        # Perform a search
-        search_box.send_keys('https://whatismyipaddress.com/')
-        search_box.submit()
-        
-        # Wait for search results
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, '#search'))
-        )
-        
-        # Print the title of the search results page
-        print(f"Page title: {driver.title}")
-        
-        # Example: Extracting search results
-        search_results = driver.find_elements(By.CSS_SELECTOR, 'h3')
-        for result in search_results:
-            print(result.text)
-    except Exception as e:
-        print(f'Exception: {str(e)}')
-        
 def handle_elements(driver):
     elements_to_check = [
         (By.XPATH, '//android.view.View[@content-desc="Install"]', "Install button clicked"),
@@ -225,8 +202,7 @@ def handle_elements(driver):
                     if "com.android.chrome" in driver.current_package:
                         #swipe_to_bottom(driver)
                         time.sleep(5)
-                        chromer()
-
+                        driver.back() 
                     break
             except TimeoutException:
                 continue
