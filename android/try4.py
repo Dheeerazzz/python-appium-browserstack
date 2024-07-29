@@ -1,3 +1,20 @@
+#to go to download progress
+# click on download progress icon - '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/inprogress"]'
+
+#to go to video player
+#click video player logo- '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/player"]'
+#to go to guide
+# click on menu-'//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/ivMenu"]'
+#click guide button - '//android.widget.TextView[@text="How To Download"]'
+#click next in guide - use 'click_next(xpath,times=3)' - '//android.widget.TextView[@resource-id="com.hd.video.downloader.xv:id/txtOK"]'
+
+#to go to premium 
+#menu-'//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/ivMenu"]'
+#click premium button -  '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/premium"]'
+# continue button - '//android.widget.TextView[@resource-id="com.hd.video.downloader.xv:id/btnContinue"]'
+
+
+
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.ui import WebDriverWait
@@ -80,7 +97,7 @@ def click_first_next(driver,xpath):
         print(f"Exception occurred: {e}")
 
 def click_next(driver, xpath,times):
-    for _ in range(3):
+    for _ in range(times):
         try:
             element = WebDriverWait(driver,5).until(EC.presence_of_element_located((MobileBy.XPATH, xpath)))
             if element.is_displayed():
@@ -149,87 +166,9 @@ def hit_download(driver,xpath):
 
     driver.quit()
 
-def download_progress(driver,xpath):
-    def click_progress(driver):
-        try:
-            element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((MobileBy.XPATH, '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/inprogress"]')))
-            if element.is_displayed():
-                element.click()
-                print("Download progress clicked")
-            else:
-                handle_ads(driver)
-                click_progress(driver)
-        except Exception as e:
-            print(f"Exception occurred: {e}")
-            handle_ads(driver)
-            click_progress(driver)
 
-    click_progress(driver)
-    driver.quit()
 
-def video_player(driver,xpath):
-    def click_video_player(driver):
-        try:
-            element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((MobileBy.XPATH, '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/player"]')))
-            if element.is_displayed():
-                element.click()
-                print("Video player clicked")
-            else:
-                handle_ads(driver)
-                click_video_player(driver)
-        except Exception as e:
-            print(f"Exception occurred: {e}")
-            handle_ads(driver)
-            click_video_player(driver)
 
-    click_video_player(driver)
-    driver.quit()
-
-def guide(driver,xpath):
-    def menu(driver):
-        try:
-            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((MobileBy.XPATH, '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/ivMenu"]')))
-            if element.is_displayed():
-                element.click()
-                print("Menu clicked")
-            else:
-                handle_ads(driver)
-                menu(driver)
-        except Exception as e:
-            print(f"Exception occurred: {e}")
-            handle_ads(driver)
-            menu(driver)
-
-    def guidebtn(driver,xpath):
-        try:
-            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((MobileBy.XPATH, '//android.widget.TextView[@text="How To Download"]')))
-            if element.is_displayed():
-                element.click()
-                print("Guide button clicked")
-            else:
-                handle_ads(driver)
-                guidebtn(driver)
-        except Exception as e:
-            print(f"Exception occurred: {e}")
-            handle_ads(driver)
-            guidebtn(driver)
-
-    def click_next(driver,xpath):
-        for _ in range(3):
-            try:
-                element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((MobileBy.XPATH, '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/btnNext"]')))
-                if element.is_displayed():
-                    element.click()
-                    print("Next button clicked")
-                else:
-                    handle_ads(driver)
-            except Exception as e:
-                print(f"Exception occurred: {e}")
-
-    menu(driver)
-    guidebtn(driver)
-    click_next(driver)
-    driver.quit()
 
 # Read JSON file and determine the flow of actions
 with open('input.json') as f:
@@ -257,12 +196,6 @@ for action in activity_flow:
         link_paste(driver, parameters.get('link', ''),xpath)
     elif action_type== 'hit_download':
         hit_download(driver,xpath)  
-    elif action_type == 'download_progress':
-        download_progress(driver,xpath)
-    elif action_type == 'video_player':
-        video_player(driver,xpath)
-    elif action_type == 'guide':
-        guide(driver,xpath)
     else:
         print(f"Unknown action type: {action_type}")
 
