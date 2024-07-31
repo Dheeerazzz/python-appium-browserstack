@@ -3,6 +3,7 @@
 
 #to go to video player
 #click video player logo- '//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/player"]'
+
 #to go to guide
 # click on menu-'//android.widget.ImageView[@resource-id="com.hd.video.downloader.xv:id/ivMenu"]'
 #click guide button - '//android.widget.TextView[@text="How To Download"]'
@@ -85,43 +86,20 @@ def select_language(driver, language,xpath):
         handle_ads(driver)
         select_language(driver, language,xpat)
 
-def click_first_next(driver,xpath):
-    try:
-        element = WebDriverWait(driver,5).until(EC.presence_of_element_located((MobileBy.XPATH, xpath)))
-        if element.is_displayed():
-            element.click()
-            print("Next button clicked")
-        else:
-            print("Next button not visible.")
-    except Exception as e:
-        print(f"Exception occurred: {e}")
-
-def click_next(driver, xpath,times):
-    for _ in range(times):
+def click_next(driver, xpath, times):
+    for i in range(1,times+1):
         try:
-            element = WebDriverWait(driver,5).until(EC.presence_of_element_located((MobileBy.XPATH, xpath)))
+            element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((MobileBy.XPATH, xpath)))
+            
             if element.is_displayed():
                 element.click()
                 print("Next button clicked")
-            else:
-                handle_ads(driver)  
+                #return 
         except Exception as e:
             print(f"Exception occurred: {e}")
-
-
-def start(driver,xpath):
-    try:
-        element = WebDriverWait(driver, 5).until(EC.presence_of_element_located((MobileBy.XPATH, xpath)))
-        if element.is_displayed():
-            element.click()
-            print("Start button clicked")
-        else:
             handle_ads(driver)
-            start(driver,xpath)
-    except Exception as e:
-        print(f"Exception occurred: {e}")
-        handle_ads(driver)
-        start(driver,xpath)
+            click_next(driver,xpath,i)
+
 
 
 def platform(driver,platform,xpath):
@@ -153,25 +131,11 @@ def link_paste(driver,link,xpath):
         handle_ads(driver)
         link_paste(driver,link,xpath)
 
-def hit_download(driver,xpath):
-    try:
-        element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((MobileBy.XPATH,xpath)))
-        if element.is_displayed():
-            element.click()
-            print("Continue to app button clicked")
-        else:
-            print("Continue to app button not visible.")
-    except Exception as e:
-        print(f"Exception occurred: {e}")
-
-    driver.quit()
-
-
 
 
 
 # Read JSON file and determine the flow of actions
-with open('input.json') as f:
+with open('premium.json') as f:
     data = json.load(f)
     activity_flow = data.get('activity_flow', [])
 
@@ -183,19 +147,15 @@ for action in activity_flow:
 
     if action_type == 'select_language':
         select_language(driver, parameters.get('language', 'english'),xpath)
-    elif action_type == 'click_first_next':
-        click_first_next(driver,xpath)
     elif action_type == 'click_next':
         times=action.get('times')
         click_next(driver,xpath,times)
-    elif action_type == 'start':
-        start(driver,xpath)
     elif action_type== 'platform':
         platform(driver, parameters.get('platform', ''),xpath)
     elif action_type== 'link_paste':
         link_paste(driver, parameters.get('link', ''),xpath)
-    elif action_type== 'hit_download':
-        hit_download(driver,xpath)  
+    elif action_type=='handle_ads':
+        handle_ads(driver)
     else:
         print(f"Unknown action type: {action_type}")
 

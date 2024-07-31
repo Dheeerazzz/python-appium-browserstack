@@ -1,0 +1,36 @@
+{
+    "language": "english",
+    "action": "download post",
+    "activity_flow": [
+      {
+        "type": "select_language",
+        "parameter": {
+          "language": "french"
+        },
+        "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+        "times":1
+      },      
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/btnNext\"]",
+        "times":3
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+        "times":1
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/player\"]",
+        "times":1
+      },
+      {
+        "type": "handle_ads"
+      }
+    ]
+}

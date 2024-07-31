@@ -5,13 +5,14 @@
       {
         "type": "select_language",
         "parameter": {
-          "language": "english"
+          "language": "french"
         },
         "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
       },
       {
-        "type": "click_first_next",
-        "xpath": "//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]"
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+        "times":1
       },      
       {
         "type": "click_next",
@@ -19,8 +20,9 @@
         "times":3
       },
       {
-        "type": "start",
-        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]"
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+        "times":1
       },
       {
         "type": "platform",
@@ -37,8 +39,9 @@
         }
       },
       {
-        "type": "hit_download",
-        "xpath":  "//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/loginBtn1\"]"
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/loginBtn1\"]",
+        "times":1
       }
     ]
   }
