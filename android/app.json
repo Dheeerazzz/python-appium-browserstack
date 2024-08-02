@@ -1,0 +1,207 @@
+[
+  {
+    "language": "english",
+    "action": "download post",
+    "activity_flow": [
+      {
+        "type": "select_language",
+        "parameter": {
+          "language": "french"
+        },
+        "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+        "times":1
+      },      
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/btnNext\"]",
+        "times":3
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+        "times":1
+      },
+      {
+        "type": "platform",
+          "xpath": "//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/",
+        "parameter": {
+          "platform": "twitter"
+        }
+      },
+      {
+        "type": "link_paste",
+        "xpath":"//android.widget.EditText[@resource-id=\"com.hd.video.downloader.xv:id/et_text\"]",
+        "parameter": {
+          "link": "https://x.com/MaddockFilms/status/1813859556876779538"
+        }
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/loginBtn1\"]",
+        "times":1
+      }
+    ]
+  },
+  {
+    "language": "english",
+    "action": "download post",
+    "activity_flow": [
+      {
+        "type": "select_language",
+        "parameter": {
+          "language": "french"
+        },
+        "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+        "times":1
+      },      
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/btnNext\"]",
+        "times":3
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+        "times":1
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/ivMenu\"]",
+        "times":1
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/premium\"]",
+        "times":1
+      },
+      {
+        "type": "click_next",
+        "xpath":"//android.widget.TextView[@resource-id=\"com.hd.video.downloader.xv:id/btnContinue\"]",
+        "times":1
+      }
+    ]
+},
+{
+  "language": "english",
+  "action": "download post",
+  "activity_flow": [
+    {
+      "type": "select_language",
+      "parameter": {
+        "language": "french"
+      },
+      "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+      "times":1
+    },      
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/btnNext\"]",
+      "times":3
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+      "times":1
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/ivMenu\"]",
+      "times":1
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.TextView[@text=\"How To Download\"]",
+      "times":1
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.TextView[@resource-id=\"com.hd.video.downloader.xv:id/txtOK\"]",
+      "times":3
+    }
+  ]
+},
+{
+  "language": "english",
+  "action": "download post",
+  "activity_flow": [
+    {
+      "type": "select_language",
+      "parameter": {
+        "language": "french"
+      },
+      "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+      "times":1
+    },      
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/btnNext\"]",
+      "times":3
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+      "times":1
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/player\"]",
+      "times":1
+    },
+    {
+      "type": "handle_ads"
+    }
+  ]
+},
+{
+  "language": "english",
+  "action": "download post",
+  "activity_flow": [
+    {
+      "type": "select_language",
+      "parameter": {
+        "language": "french"
+      },
+      "xpath":"(//android.widget.LinearLayout[@resource-id=\"com.hd.video.downloader.xv:id/ll\"])"
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/next\"]",
+      "times":1
+    },      
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/btnNext\"]",
+      "times":3
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/start\"]",
+      "times":1
+    },
+    {
+      "type": "click_next",
+      "xpath":"//android.widget.ImageView[@resource-id=\"com.hd.video.downloader.xv:id/inprogress\"]",
+      "times":1
+    },
+    {
+      "type": "handle_ads"
+    }
+  ]
+}
+]
